@@ -1,4 +1,3 @@
-import { use } from "react";
 import { Customer, DeliveryPartner } from "../../models/user.js";
 
 const genrateToken = (user) => {

@@ -11,11 +11,11 @@ const userSchema = new mongoose.Schema({
   isAuthenticated: { type: Boolean, default: false },
 });
 
-// Coustom Schema
+// Customer Schema
 const customerSchema = new mongoose.Schema({
   ...userSchema.obj,
   phone: { type: Number, required: true, unique: true },
-  role: { type: String, enum: [Customer], default: "Customer" },
+  role: { type: String, enum: ["Customer"], default: "Customer" },
   liveLocation: {
     latitude: { type: Number },
     longitude: { type: Number },
@@ -23,12 +23,16 @@ const customerSchema = new mongoose.Schema({
   address: { type: String },
 });
 
-// Delovery Partner Schema
+// Delivery Partner Schema
 const deliveryPartnerSchema = new mongoose.Schema({
   ...userSchema.obj,
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  role: { type: String, enum: ["DeliveryPartner"], default: "DeliveryPartner" },
+  role: {
+    type: String,
+    enum: ["DeliveryPartner"],
+    default: "DeliveryPartner",
+  },
   liveLocation: {
     latitude: { type: Number },
     longitude: { type: Number },
